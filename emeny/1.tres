@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://dm7rrp5qn5re3"]
+
+[ext_resource type="Script" path="res://Resources/PickupResource.gd" id="1_yie03"]
+[ext_resource type="Resource" uid="uid://bgu0wylersnrt" path="res://pickup/goods/xp.tres" id="2_u8nix"]
+[ext_resource type="Resource" uid="uid://c1ky5mpv1top3" path="res://pickup/goods/gold.tres" id="3_phpjb"]
+[ext_resource type="Script" path="res://Resources/EnemyType.gd" id="3_qxcre"]
+
+[resource]
+script = ExtResource("3_qxcre")
+title = "1"
+health = 10.0
+damage = 5.0
+drops = Array[ExtResource("1_yie03")]([ExtResource("2_u8nix"), ExtResource("3_phpjb")])

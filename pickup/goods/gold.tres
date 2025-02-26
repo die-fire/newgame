@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Gem" load_steps=3 format=3 uid="uid://c1ky5mpv1top3"]
+
+[ext_resource type="Texture2D" uid="uid://djoa75e5nmrje" path="res://pickup/assets/Items/platformPack_item002.png" id="1_jfain"]
+[ext_resource type="Script" path="res://Resources/Gem.gd" id="2_cqh6p"]
+
+[resource]
+script = ExtResource("2_cqh6p")
+XP = 0.0
+gold = 5.0
+title = "gold"
+icon = ExtResource("1_jfain")
+description = "get 5 gold"

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy383wu2rjiou"]
+
+[ext_resource type="Script" path="res://emeny/create_enemies.gd" id="1_fabns"]
+
+[node name="createEnemies" type="Node2D"]
+script = ExtResource("1_fabns")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="location" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="location" to="." method="_on_location_timeout"]

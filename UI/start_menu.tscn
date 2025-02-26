@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbxd00kkspswi"]
+
+[ext_resource type="Script" path="res://UI/start_menu.gd" id="1_hb747"]
+
+[node name="startMenu" type="Node2D"]
+script = ExtResource("1_hb747")
+
+[node name="play" type="Button" parent="."]
+offset_left = 776.0
+offset_top = 279.0
+offset_right = 976.0
+offset_bottom = 354.0
+scale = Vector2(2, 2)
+theme_override_font_sizes/font_size = 48
+text = "开始游戏"
+
+[node name="quit" type="Button" parent="."]
+offset_left = 779.0
+offset_top = 541.0
+offset_right = 979.0
+offset_bottom = 616.0
+scale = Vector2(2, 2)
+theme_override_font_sizes/font_size = 48
+text = "退出游戏"
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

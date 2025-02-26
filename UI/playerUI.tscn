@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjvwwe3jr06jt"]
+
+[ext_resource type="Texture2D" uid="uid://cm70rwc61cvco" path="res://UI/assets/Base-01.png" id="1_1uwll"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1inw6"]
+atlas = ExtResource("1_1uwll")
+region = Rect2(307, 21, 58, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbmra"]
+atlas = ExtResource("1_1uwll")
+region = Rect2(308, 150, 56, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbi00"]
+atlas = ExtResource("1_1uwll")
+region = Rect2(307, 21, 58, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5q02"]
+atlas = ExtResource("1_1uwll")
+region = Rect2(308, 118, 56, 4)
+
+[node name="playerUI" type="CanvasLayer"]
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
+
+[node name="XP" type="TextureProgressBar" parent="."]
+offset_left = 52.0
+offset_top = 69.0
+offset_right = 110.0
+offset_bottom = 75.0
+scale = Vector2(2, 2)
+max_value = 10.0
+texture_over = SubResource("AtlasTexture_1inw6")
+texture_progress = SubResource("AtlasTexture_pbmra")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="LEVEL" type="Label" parent="XP"]
+layout_mode = 0
+offset_left = -21.0
+offset_top = -3.0
+offset_right = 19.0
+offset_bottom = 20.0
+scale = Vector2(0.5, 0.5)
+text = "Lv 1"
+
+[node name="HP" type="TextureProgressBar" parent="."]
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 66.0
+offset_bottom = 9.0
+scale = Vector2(3, 3)
+size_flags_vertical = 4
+max_value = 20.0
+value = 20.0
+texture_over = SubResource("AtlasTexture_qbi00")
+texture_progress = SubResource("AtlasTexture_u5q02")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="Weapons" type="HBoxContainer" parent="."]
+offset_left = 9.0
+offset_top = 24.0
+offset_right = 181.0
+offset_bottom = 64.0

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbshh7re6qb41"]
+
+[ext_resource type="Script" path="res://UI/fail.gd" id="1_unlsq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ghnuy"]
+font_size = 128
+font_color = Color(0.957, 0, 0, 1)
+
+[node name="fail" type="CanvasLayer"]
+script = ExtResource("1_unlsq")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 788.0
+offset_top = 209.0
+offset_right = 1044.0
+offset_bottom = 384.0
+text = "失败"
+label_settings = SubResource("LabelSettings_ghnuy")
+
+[node name="continue" type="Button" parent="."]
+offset_left = 544.0
+offset_top = 638.0
+offset_right = 766.0
+offset_bottom = 749.0
+theme_override_font_sizes/font_size = 64
+text = "继续"
+
+[node name="quit" type="Button" parent="."]
+offset_left = 1108.0
+offset_top = 631.0
+offset_right = 1330.0
+offset_bottom = 742.0
+theme_override_font_sizes/font_size = 64
+text = "退出"
+
+[connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

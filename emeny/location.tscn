@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbdtnh3k70amx"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qu30f"]
+
+[node name="Sprite2D" type="Sprite2D"]
+scale = Vector2(50, 50)
+texture = SubResource("PlaceholderTexture2D_qu30f")

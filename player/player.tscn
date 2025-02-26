@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://bt1je3lxbf5fr"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_b4jkd"]
+[ext_resource type="Texture2D" uid="uid://dv4j0xhioagbj" path="res://player/assets/player1/player1-sheet.png" id="2_83df7"]
+[ext_resource type="PackedScene" uid="uid://i1qcm6dnp4f2" path="res://weapon/now_weapons.tscn" id="2_jlvyx"]
+[ext_resource type="PackedScene" uid="uid://cjvwwe3jr06jt" path="res://UI/playerUI.tscn" id="4_dbhag"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gffr5"]
+atlas = ExtResource("2_83df7")
+region = Rect2(0, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kgvs"]
+atlas = ExtResource("2_83df7")
+region = Rect2(240, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx6me"]
+atlas = ExtResource("2_83df7")
+region = Rect2(480, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wswr"]
+atlas = ExtResource("2_83df7")
+region = Rect2(720, 0, 240, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hiarv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gffr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kgvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qx6me")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wswr")
+}],
+"loop": true,
+"name": &"defaults",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1iq4f"]
+radius = 77.1038
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_itenw"]
+radius = 692.74
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sqgxu"]
+radius = 76.0
+
+[node name="player" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(0.5, 0.5)
+collision_mask = 3
+script = ExtResource("1_b4jkd")
+
+[node name="playerAni" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hiarv")
+animation = &"defaults"
+frame = 3
+frame_progress = 0.999277
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_1iq4f")
+
+[node name="now_weapons" parent="." instance=ExtResource("2_jlvyx")]
+
+[node name="pickup" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickup"]
+shape = SubResource("CircleShape2D_itenw")
+
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+shape = SubResource("CircleShape2D_sqgxu")
+
+[node name="playerUI" parent="." instance=ExtResource("4_dbhag")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="godTime" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="pickup" to="." method="_on_pickup_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="godTime" to="." method="_on_god_time_timeout"]

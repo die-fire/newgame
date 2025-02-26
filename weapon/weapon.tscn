@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://hp8gnphu1prh"]
+
+[ext_resource type="Texture2D" uid="uid://c11qteo51tww1" path="res://weapon/assets/tile_0104.png" id="1_jmpuw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6607e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jmpuw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="weapon" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_6607e")
+flip_h = true
